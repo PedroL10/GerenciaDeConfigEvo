@@ -41,3 +41,7 @@ Se desejar que o CI publique a imagem em um registry (Docker Hub ou GitHub Conta
 
 - O repositório contém testes unitários, de integração e de aceitação. Os testes foram verificados localmente.
 - Foi removido um stub de teste que conflitou com a anotação `@LocalServerPort` do Spring Boot.
+
+---
+
+CI trigger: forced run on 2025-12-02 to validate workflow changes.
