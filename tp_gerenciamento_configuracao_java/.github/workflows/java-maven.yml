@@ -29,7 +29,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-m2-
 
+      - name: Debug: show repo files
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 3 -type f -name "pom.xml" -print
+
       - name: Build and run tests
+        working-directory: .
         run: mvn -B -DskipTests=false package
 
       - name: Set up Docker Buildx
