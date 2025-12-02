@@ -15,9 +15,9 @@ jobs:
           java-version: "17"
           distribution: "temurin"
       - name: Build and package with Maven
-        run: mvn -B -DskipTests=false package
+        run: mvn -B -DskipTests=false -f tp_gerenciamento_configuracao_java/pom.xml package
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Build Docker image
         run: |
-          docker build -t taskmanager:${{ github.sha }} .
+          docker build -t taskmanager:${{ github.sha }} tp_gerenciamento_configuracao_java
