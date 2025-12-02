@@ -37,9 +37,17 @@ jobs:
 
       - name: Debug: show repo files
         run: |
+          echo "GITHUB_WORKSPACE=${GITHUB_WORKSPACE}"
           pwd
-          ls -la
-          find . -maxdepth 3 -type f -name "pom.xml" -print
+          echo "Current user: $(whoami)"
+          echo "Listing repository root:"
+          ls -la .
+          echo "Searching for pom.xml (maxdepth 5):"
+          find . -maxdepth 5 -type f -name "pom.xml" -print || true
+          echo "Check if ./pom.xml exists:" 
+          if [ -f ./pom.xml ]; then echo "pom exists at ./pom.xml"; ls -la ./pom.xml; else echo "pom NOT found at ./pom.xml"; fi
+          echo "Print directory tree (first 500 lines):"
+          ls -R | sed -n '1,500p' || true
 
       - name: Build and run tests
         run: mvn -B -f ./pom.xml -DskipTests=false package
