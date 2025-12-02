@@ -1,0 +1,23 @@
+# Maven
+/target/
+/.mvn/
+
+# Eclipse / IntelliJ
+.classpath
+*.iml
+*.ipr
+*.iws
+/.idea/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary
+*_flymake.*
